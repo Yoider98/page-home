@@ -1,0 +1,294 @@
+.menu {
+  background-color: rgb(90, 90, 92);
+}
+.navbar-toggler {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu .nav-link {
+  color: black !important;
+  font-size: 20px !important;
+}
+
+.header-contacto-1 {
+  background-color: #1e3a8a;
+  height: 30px;
+  width: 50%;
+  border-radius: 0 0 30px 30px;
+
+  margin-left: 40%;
+}
+.fondo-azul {
+  background-color: #1e3a8a;
+  height: 20px;
+}
+.contactos-header {
+  width: 100%;
+
+  display: flex;
+  gap: 16px;
+}
+.bg-light {
+  background-color: rgb(231, 109, 109) !important;
+}
+
+.grow1 {
+  flex-grow: 1;
+}
+.icon-text {
+  display: flex; /* Alinear los elementos horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  gap: 15px; /* Espacio entre el icono y el texto */
+}
+
+.icon {
+  height: auto;
+  width: 70px;
+  padding: 10px;
+  border: 2px dashed black;
+  border-radius: 10px; /* Bordes redondeados */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon i {
+  font-size: 44px; /* Tamaño del icono */
+  color: #1e3a8a; /* Color del icono */
+}
+
+.text h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #1e3a8a;
+}
+
+.text p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.layout {
+  width: 100%;
+
+  display: grid;
+  grid:
+    "header" auto
+    "main" 1fr
+    "footer" auto
+    / 1fr;
+}
+.bg-image {
+  background-image: url("./assets/pexels-blue-bird-7218525.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 16/9; /* Ajusta según la proporción de tu imagen */
+  width: 100%;
+}
+.form form {
+  background-color: #aeafb3b9;
+  padding: 20px;
+  width: 65%;
+}
+
+/* Estilo personalizado del input de intl-tel-input */
+.iti {
+  display: block;
+  color: black;
+}
+.service-home {
+  width: 100%;
+
+  display: flex;
+  gap: 55px;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.card-home {
+  box-shadow: 2px 2px 6px 2px rgba(0, 150, 255, 0.91);
+}
+.card-home:hover {
+  box-shadow: 2px 2px 2px 2px rgba(150, 222, 208, 0.91);
+  transform: scaleX(1.1) scaleY(1.1);
+}
+.button-service {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #007bff; /* Cambia el color según tu diseño */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+}
+
+.button-service:hover {
+  background-color: #0056b3; /* Cambia el color al pasar el mouse */
+}
+.description-service {
+  padding: 1% 9%;
+  background-color: rgb(190, 191, 193);
+}
+.divicion .jumbotron {
+  background-color: #007bff; /* Azul estilo Bootstrap */
+  color: white;
+  text-align: center;
+}
+.divicion .jumbotron p {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.divicion .jumbotron .btn {
+  background-color: #0056b3;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.citas {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 150" fill="%232D33B7"><path d="M0 100v50c166.7 0 166.7-33 333.3-33S500 117 666.7 117 833.3 100 1000 100V0H0Z" opacity=".5" transform="rotate(180, 500, 75)"></path><path d="M0 80v50c166.7 0 166.7-33 333.3-33S500 97 666.7 97 833.3 80 1000 80V0H0Z" opacity=".5" transform="rotate(180, 500, 75)"></path><path d="M0 60v50c166.7 0 166.7-33 333.3-33S500 77 666.7 77 833.3 60 1000 60V0H0Z" transform="rotate(180, 500, 75)"></path></svg>');
+  color: white;
+  padding: 80px 0; /* Ajusta el padding para adaptarlo a las ondas menos pronunciadas */
+  text-align: center;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+.citas .container {
+  position: relative;
+  z-index: 1;
+}
+
+.citas h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.citas .btn {
+  background-color: #2D33B7;
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+
+.citas .btn:hover {
+  background-color: #1A24A3;
+}
+
+
+/* Footer Styles */
+.footer {
+  background-color: #f8f9fa;
+  padding: 40px 0;
+  color: #333;
+}
+
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer h3 {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.footer .contact,
+.footer .social,
+.footer .navigation {
+  flex: 1;
+  margin: 0 20px;
+  min-width: 250px;
+}
+
+.footer .social-icon {
+  display: block;
+  color: #007bff;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.footer .social-icon:hover {
+  color: #0056b3;
+}
+
+.footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin: 5px 0;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.footer ul li a:hover {
+  color: #0056b3;
+}
+
+.footer-note {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.custom-shape-divider-top-1733369359 .shape-fill {
+  fill: #ffffff;
+}
+
+.header {
+  grid-area: header;
+}
+.main {
+  grid-area: main;
+}
+.footer {
+  grid-area: footer;
+}
+
+@media (max-width: 768px) {
+  .identidad .grow1 {
+    display: none;
+  }
+  .fondo-azul {
+    display: none;
+  }
+  .header-contacto-1 {
+    margin-top: 10px !important;
+    border-radius: 0px;
+    position: fixed;
+    right: 0;
+    font-size: 11px;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999; /* Asegura que esté por encima de otros elementos */
+  }
+  .header-contacto-1 p {
+    font-size: 16px;
+  }
+  .Jumbotron .form {
+    display: none;
+  }
+}
