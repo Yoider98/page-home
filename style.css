@@ -352,6 +352,7 @@
   .footer .container {
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
   .footer .contact, .footer .social, .footer .navigation {
@@ -361,6 +362,21 @@
 
   .footer-note {
     font-size: 0.9rem;
+  }
+
+  .social a, .navigation ul li a {
+    text-align: center;
+  }
+
+  .navigation ul {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .navigation ul li {
+    list-style: none;
   }
   .Jumbotron .form {
     display: none;
