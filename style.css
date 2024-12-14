@@ -1,6 +1,4 @@
-.menu {
-  background-color: rgb(90, 90, 92);
-}
+
 .navbar-toggler {
   display: flex;
   justify-content: center;
@@ -10,6 +8,7 @@
   color: black !important;
   font-size: 20px !important;
 }
+
 
 .header-contacto-1 {
   background-color: #1e3a8a;
@@ -30,7 +29,11 @@
   gap: 16px;
 }
 .bg-light {
-  background-color: rgb(231, 109, 109) !important;
+  background-color: rgb(127, 152, 227) !important;
+}
+.navbar-nav .dropdown-menu{
+  background-color: rgb(127, 152, 227);
+  text-align: center;
 }
 
 .grow1 {
@@ -68,6 +71,21 @@
 .text p {
   margin: 0;
   font-size: 14px;
+}
+.layout-jumbotron {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between; /* Asegura separación entre elementos */
+}
+
+.layout-jumbotron > div {
+  flex: 1; /* Permite que los elementos crezcan según el espacio disponible */
+}
+
+.layout-jumbotron .jumbotron {
+  padding: 16px; /* Espaciado interno para mayor legibilidad */
 }
 
 .layout {
@@ -137,6 +155,9 @@
   padding: 1% 9%;
   background-color: rgb(190, 191, 193);
 }
+.description-service img{
+  width: 100%;
+}
 .divicion .jumbotron {
   background-color: #007bff; /* Azul estilo Bootstrap */
   color: white;
@@ -155,6 +176,8 @@
   border-radius: 5px;
   font-size: 1rem;
 }
+
+
 
 .citas {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 150" fill="%232D33B7"><path d="M0 100v50c166.7 0 166.7-33 333.3-33S500 117 666.7 117 833.3 100 1000 100V0H0Z" opacity=".5" transform="rotate(180, 500, 75)"></path><path d="M0 80v50c166.7 0 166.7-33 333.3-33S500 97 666.7 97 833.3 80 1000 80V0H0Z" opacity=".5" transform="rotate(180, 500, 75)"></path><path d="M0 60v50c166.7 0 166.7-33 333.3-33S500 77 666.7 77 833.3 60 1000 60V0H0Z" transform="rotate(180, 500, 75)"></path></svg>');
@@ -192,67 +215,78 @@
 }
 
 
-/* Footer Styles */
 .footer {
-  background-color: #f8f9fa;
-  padding: 40px 0;
-  color: #333;
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 50px 0;
+  font-family: 'Arial', sans-serif;
 }
 
 .footer .container {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .footer h3 {
-  color: #007bff;
+  font-size: 1.5rem;
   margin-bottom: 20px;
+  color: #ecf0f1;
 }
 
-.footer .contact,
-.footer .social,
-.footer .navigation {
-  flex: 1;
-  margin: 0 20px;
-  min-width: 250px;
+.contact, .social, .navigation {
+  width: 30%;
 }
 
-.footer .social-icon {
+.contact p, .social a, .navigation ul li {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #bdc3c7;
+}
+
+.contact p i, .social a i {
+  margin-right: 10px;
+}
+
+.social a {
   display: block;
-  color: #007bff;
+  font-size: 1rem;
+  color: #bdc3c7;
   text-decoration: none;
-  margin: 5px 0;
 }
 
-.footer .social-icon:hover {
-  color: #0056b3;
+.social a:hover {
+  color: #3498db;
 }
 
-.footer ul {
-  list-style-type: none;
+.navigation ul {
+  list-style: none;
   padding: 0;
 }
 
-.footer ul li {
-  margin: 5px 0;
-}
-
-.footer ul li a {
+.navigation ul li a {
+  color: #bdc3c7;
   text-decoration: none;
-  color: #007bff;
+  font-size: 1rem;
 }
 
-.footer ul li a:hover {
-  color: #0056b3;
+.navigation ul li a:hover {
+  color: #3498db;
 }
 
 .footer-note {
   text-align: center;
+  font-size: 1rem;
   margin-top: 20px;
-  font-size: 0.9rem;
-  color: #6c757d;
+  color: #bdc3c7;
 }
+
+.footer-note i {
+  margin-right: 5px;
+}
+
 
 .custom-shape-divider-top-1733369359 .shape-fill {
   fill: #ffffff;
@@ -267,6 +301,12 @@
 .footer {
   grid-area: footer;
 }
+.logoScreanSmall{
+  display: none;
+}
+.header-contacto-2{
+  display: none;
+}
 
 @media (max-width: 768px) {
   .identidad .grow1 {
@@ -276,19 +316,98 @@
     display: none;
   }
   .header-contacto-1 {
-    margin-top: 10px !important;
-    border-radius: 0px;
-    position: fixed;
-    right: 0;
-    font-size: 11px;
-    bottom: 0;
-    width: 100%;
+    font-size: 12px;
+    position: block; /* Fija el header en la parte superior */
+    top: 0; /* Colócalo en la parte superior */
+    right: 0; /* Alinea a la izquierda */
+    right: 0; /* Asegura que ocupe todo el ancho */
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
     z-index: 9999; /* Asegura que esté por encima de otros elementos */
+    background-color: #1e3a8a; /* Color de fondo */
+    display: flex; /* Usa Flexbox para centrar el contenido */
+    justify-content: start; /* Centra el contenido horizontalmente */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+   margin: 0;
   }
   .header-contacto-1 p {
     font-size: 16px;
   }
+  .header-contacto-2{
+    border-radius: 0px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0; /* Lo coloca en la parte inferior */
+    font-size: 20px;
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    z-index: 9999; /* Asegura que esté por encima de otros elementos */
+    background-color: #1e3a8a; /* Color de fondo */
+    display: flex; /* Usa Flexbox para centrar el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+    padding: 10px;
+    color: white;
+  }
+  .footer .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer .contact, .footer .social, .footer .navigation {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .footer-note {
+    font-size: 0.9rem;
+  }
   .Jumbotron .form {
     display: none;
   }
+
+  .layout-jumbotron {
+    flex-direction: column; /* Cambia a diseño vertical */
+    text-align: center; /* Centra el contenido */
+  }
+
+  .layout-jumbotron > div {
+    flex: unset; /* Permite que los elementos se ajusten a su contenido */
+    width: 100%; /* Asegura que ocupen toda la anchura */
+  }
+
+  .layout-jumbotron .jumbotron {
+    padding: 12px; /* Reduce el espaciado en pantallas más pequeñas */
+  }
+  .logoScreanSmall {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100px;  /* Controla el tamaño máximo del logo */
+    margin: 30px auto;
+    width: auto;
+  }
+  .navbar-toggler {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0; /* Evita que el botón de menú ocupe más espacio del necesario */
+  }
+
+  .logoScreanSmall img {
+    width: 100px; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+  }
+  .navbar-nav .nav-item {
+    background-color: #a5a5a5;
+    text-align: center;
+  }
+  .navbar-nav .dropdown-menu{
+    background-color: #a5a5a5;
+    text-align: center;
+    border:none
+  }
+
+
 }
+
