@@ -156,7 +156,7 @@
   background-color: rgb(190, 191, 193);
 }
 .description-service img{
-  width: 100%;
+  width: 80%;
 }
 .divicion .jumbotron {
   background-color: #007bff; /* Azul estilo Bootstrap */
@@ -175,6 +175,11 @@
   text-decoration: none;
   border-radius: 5px;
   font-size: 1rem;
+}
+.card-img, .card-img-bottom, .card-img-top {
+  width: 50% !important;
+  margin: 0 auto;
+  display: block; /* Cambia el comportamiento predeterminado inline de las imágenes */
 }
 
 
@@ -309,6 +314,9 @@
 }
 
 @media (max-width: 768px) {
+  .description-service img{
+    width: 100%;
+  }
   .identidad .grow1 {
     display: none;
   }
@@ -427,3 +435,18 @@
 
 }
 
+.navbar-nav .dropdown-menu:hover{
+  background-color: rgb(153, 173, 232) ;
+  color: #fff;
+  border-radius: 5px;
+}
+.navbar-nav .dropdown-item:hover{
+  background-color: rgb(180, 191, 224) ;
+  border-radius: 5px;
+}
+/* Efectos de hover en los enlaces */
+.nav-item .nav-link:hover {
+  background-color: rgb(153, 173, 232) ;
+  color: #fff;
+  border-radius: 5px;
+}
