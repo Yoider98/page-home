@@ -42,6 +42,24 @@ const iti = window.intlTelInput(phoneInputField, {
 
     
   });
+
+  function openModal(img) {
+    var modal = document.getElementById("imageModal");
+    var modalImg = document.getElementById("modalImage");
+    var caption = document.getElementById("caption");
+    
+    modal.style.display = "block";
+    modalImg.src = img.src;
+    caption.innerHTML = img.alt;  // Muestra el alt de la imagen como pie de foto
+  }
+  
+  // Función para cerrar el modal
+  function closeModal() {
+    var modal = document.getElementById("imageModal");
+    modal.style.display = "none";
+  }
+
+  
   // Enviar los datos a un servidor usando fetch
 //   try {
 //     const response = await fetch('https://example.com/api/form-submit', {
