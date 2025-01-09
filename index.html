@@ -304,7 +304,7 @@
                     />
                     <div class="card-body text-center">
                       <h5 class="card-title">Interior Painting</h5>
-                      <p class="card-text">Read More About Interior Painting</p>
+                      <p class="card-text"> <u>Read More About Interior Service</u></p>
                     </div>
                   </div>
                 </a>
@@ -323,14 +323,14 @@
                     />
                     <div class="card-body text-center">
                       <h5 class="card-title">Exterior Painting</h5>
-                      <p class="card-text">Read More About Exterior Painting</p>
+                      <p class="card-text"><u>Read More About Exterior Service</u></p>
                     </div>
                   </div>
                 </a>
               </div>
             </div>
           </div>
-          <button class="button-service">Book now!</button>
+          <button onclick="window.location.href='contact.html'" class="button-service">Book now!</button>
         </section>
         <section class="description-service">
           <div class="row">
@@ -359,7 +359,7 @@
                 to striking exteriors, your space will reflect your unique style
                 and objectives.
               </p>
-              <button class="button-service">Call us</button>
+              <button onclick="copyAndCall('631 4648686')" class="button-service">Call us</button>
             </div>
             <div class="col-md">
               <img src="./assets/Cabinet painting.jpg" alt="" />
@@ -404,7 +404,7 @@
               </p>
             </div>
           </div>
-          <button class="button-service">Schedule an Appointment</button>
+          <button onclick="window.location.href='contact.html'" class="button-service">Schedule an Appointment</button>
         </section>
         <section class="divicion">
           <div class="jumbotron">
@@ -416,7 +416,7 @@
                 </p>
               </div>
               <div>
-                <a href="#" class="btn">GET EXPERT ASSISTANCE</a>
+                <a href="contact.html" class="btn">GET EXPERT ASSISTANCE</a>
               </div>
             </div>
           </div>
@@ -429,7 +429,7 @@
               Schedule an Appointment with the Leading Painting Contractors in
               Long Island, NY!
             </h1>
-            <a href="#" class="btn">Give Us a Call</a>
+            <a onclick="copyAndCall('631 4648686')"  class="btn">Give Us a Call</a>
           </div>
         </section>
       </div>
@@ -478,5 +478,20 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script>
+      function copyAndCall(phoneNumber) {
+          // Copia el número al portapapeles
+          navigator.clipboard.writeText(phoneNumber)
+              .then(() => {
+                  alert(`Number copied: ${phoneNumber}`);
+              })
+              .catch(err => {
+                  console.error('Error al copiar el número: ', err);
+              });
+
+          // Abre la aplicación de llamadas
+          window.location.href = `tel:${phoneNumber}`;
+      }
+  </script>
   </body>
 </html>

@@ -40,6 +40,33 @@ const iti = window.intlTelInput(phoneInputField, {
     console.log('Message:', message);
     console.log('Agreement:', agreement);
 
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('phone', countryCode+" "+phone);
+    formData.append('email', email);
+    formData.append('address', address);
+    formData.append('service', service);
+    formData.append('job', job);
+    formData.append('message', message);
+    formData.append('agreement', agreement);
+  
+    fetch('enviarCorreo.php', {
+      method: 'POST',
+      body: formData,
+    })
+    .then(response => response.text())
+    .then(data => {
+      // Mostrar una confirmación o redirigir al usuario
+      alert('Mensaje enviado correctamente');
+      form.reset(); // Limpiar el formulario
+    })
+    .catch(error => {
+      console.error('Error al enviar el correo:', error);
+      alert('Hubo un problema al enviar el mensaje. Inténtalo de nuevo.');
+    });
+    
+
+
     
   });
 
@@ -59,7 +86,8 @@ const iti = window.intlTelInput(phoneInputField, {
     modal.style.display = "none";
   }
 
-  
+
+ 
   // Enviar los datos a un servidor usando fetch
 //   try {
 //     const response = await fetch('https://example.com/api/form-submit', {
