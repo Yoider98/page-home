@@ -480,15 +480,6 @@
     ></script>
     <script>
       function copyAndCall(phoneNumber) {
-          // Copia el número al portapapeles
-          navigator.clipboard.writeText(phoneNumber)
-              .then(() => {
-                  alert(`Number copied: ${phoneNumber}`);
-              })
-              .catch(err => {
-                  console.error('Error al copiar el número: ', err);
-              });
-
           // Abre la aplicación de llamadas
           window.location.href = `tel:${phoneNumber}`;
       }
