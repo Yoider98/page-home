@@ -105,59 +105,60 @@ function closeModal() {
 //     console.error('Error en la solicitud:', error);
 //     alert('No se pudo enviar el formulario. Intenta nuevamente.');
 //   }
-// const placeId = "02188262684588453855";
-// const apiKey = "AIzaSyAASW3zSxrfw2sttidO7skjlw5XZJA1gMc";
-// async function fetchReviews() {
-//   try {
-//     // Log para verificar si la función se está ejecutando
-//     console.log("Fetching reviews...");
 
-//     const response = await fetch(
-//       `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,reviews&key=${apiKey}`
-//     );
+const placeId = "02188262684588453855";
+const apiKey = "AIzaSyDvUv6t5st-c3MdZsZtPvZWjgHJXQD2Ry0";
+async function fetchReviews() {
+  try {
+    // Log para verificar si la función se está ejecutando
+    console.log("Fetching reviews...");
 
-//     // Verificar si la respuesta es exitosa
-//     if (!response.ok) {
-//       console.error("Error al obtener los datos:", response.statusText);
-//       return;
-//     }
+    const response = await fetch(
+      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,reviews&key=${apiKey}`
+    );
 
-//     const data = await response.json();
+    // Verificar si la respuesta es exitosa
+    if (!response.ok) {
+      console.error("Error al obtener los datos:", response.statusText);
+      return;
+    }
 
-//     // Verificar la respuesta obtenida
-//     console.log("Datos obtenidos de la API:", data);
+    const data = await response.json();
 
-//     // Verificar si existen reseñas
-//     if (data.result && data.result.reviews) {
-//       const reviewsContainer = document.getElementById("reviews-container");
+    // Verificar la respuesta obtenida
+    console.log("Datos obtenidos de la API:", data);
 
-//       // Verificar que se haya encontrado el contenedor
-//       if (!reviewsContainer) {
-//         console.error("Contenedor de reseñas no encontrado.");
-//         return;
-//       }
+    // Verificar si existen reseñas
+    if (data.result && data.result.reviews) {
+      const reviewsContainer = document.getElementById("reviews-container");
 
-//       // Mostrar las reseñas en el contenedor
-//       reviewsContainer.innerHTML = data.result.reviews
-//         .map(
-//           (review) => `
-//             <div class="review">
-//               <h3>${review.author_name}</h3>
-//               <p>Rating: ${review.rating} ⭐</p>
-//               <p>${review.text}</p>
-//               <small>${review.relative_time_description}</small>
-//             </div>
-//           `
-//         )
-//         .join("");
+      // Verificar que se haya encontrado el contenedor
+      if (!reviewsContainer) {
+        console.error("Contenedor de reseñas no encontrado.");
+        return;
+      }
 
-//       console.log("Reseñas cargadas con éxito");
-//     } else {
-//       console.error("No se encontraron reseñas en los datos.");
-//     }
-//   } catch (error) {
-//     console.error("Hubo un error al obtener las reseñas:", error);
-//   }
-// }
+      // Mostrar las reseñas en el contenedor
+      reviewsContainer.innerHTML = data.result.reviews
+        .map(
+          (review) => `
+            <div class="review">
+              <h3>${review.author_name}</h3>
+              <p>Rating: ${review.rating} ⭐</p>
+              <p>${review.text}</p>
+              <small>${review.relative_time_description}</small>
+            </div>
+          `
+        )
+        .join("");
 
-// fetchReviews();
+      console.log("Reseñas cargadas con éxito");
+    } else {
+      console.error("No se encontraron reseñas en los datos.");
+    }
+  } catch (error) {
+    console.error("Hubo un error al obtener las reseñas:", error);
+  }
+}
+
+fetchReviews();
