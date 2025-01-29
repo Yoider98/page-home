@@ -106,55 +106,34 @@ function closeModal() {
 //     alert('No se pudo enviar el formulario. Intenta nuevamente.');
 //   }
 
-const placeId = "02188262684588453855";
-const apiKey = "AIzaSyDvUv6t5st-c3MdZsZtPvZWjgHJXQD2Ry0";
 async function fetchReviews() {
   try {
-    // Log para verificar si la función se está ejecutando
-    console.log("Fetching reviews...");
-
-    const response = await fetch(
-      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,reviews&key=${apiKey}`
-    );
-
-    // Verificar si la respuesta es exitosa
-    if (!response.ok) {
-      console.error("Error al obtener los datos:", response.statusText);
-      return;
-    }
-
+    const response = await fetch("./reseña.php");
     const data = await response.json();
 
-    // Verificar la respuesta obtenida
-    console.log("Datos obtenidos de la API:", data);
+    if (data.result) {
+      document.getElementById("average-rating").textContent =
+        data.result.rating.toFixed(2) + " ⭐";
+      document.getElementById("total-reviews").textContent =
+        data.result.reviews.length + " reviews";
+    }
 
-    // Verificar si existen reseñas
     if (data.result && data.result.reviews) {
       const reviewsContainer = document.getElementById("reviews-container");
 
-      // Verificar que se haya encontrado el contenedor
-      if (!reviewsContainer) {
-        console.error("Contenedor de reseñas no encontrado.");
-        return;
-      }
-
-      // Mostrar las reseñas en el contenedor
       reviewsContainer.innerHTML = data.result.reviews
         .map(
           (review) => `
-            <div class="review">
-              <h3>${review.author_name}</h3>
-              <p>Rating: ${review.rating} ⭐</p>
-              <p>${review.text}</p>
-              <small>${review.relative_time_description}</small>
-            </div>
-          `
+        <div class="review">
+          <img src="${review.profile_photo_url}" alt="${review.author_name}">
+          <h3>${review.author_name}</h3>
+          <p>Rating: ${review.rating} ⭐</p>
+          <p>${review.text || "No comment provided."}</p>
+          <small>${formatTimestamp(review.time)}</small>
+        </div>
+      `
         )
         .join("");
-
-      console.log("Reseñas cargadas con éxito");
-    } else {
-      console.error("No se encontraron reseñas en los datos.");
     }
   } catch (error) {
     console.error("Hubo un error al obtener las reseñas:", error);
@@ -162,3 +141,13 @@ async function fetchReviews() {
 }
 
 fetchReviews();
+
+fetchReviews();
+function formatTimestamp(timestamp) {
+  const date = new Date(timestamp * 1000); // Convertir de segundos a milisegundos
+  return date.toLocaleDateString("es-ES", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}

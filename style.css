@@ -577,76 +577,128 @@
 }
 
 .widget-container {
-  background-color: #ffffff;
-  margin: 20px auto;
+  max-width: 900px;
+  margin: 0 auto;
   padding: 20px;
-  max-width: 1000px;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .widget-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 20px;
 }
 
 .widget-title-heading {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  color: #1a448e;
+  margin-bottom: 10px;
 }
 
 .aggregate-review-section {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .aggregate-rating-text {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #1a448e;
-  margin-right: 10px;
+  color: #ffbc00;
+}
+
+.aggregate-review-total {
+  font-size: 1rem;
+  color: #666;
 }
 
 .write-review-button {
-  padding: 8px 16px;
-  background-color: #1a448e;
-  color: #ffffff;
-  text-decoration: none;
+  background: #0073e6;
+  color: #fff;
+  padding: 10px 15px;
   border-radius: 5px;
-  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
 }
 
-/* Grid adaptable */
+.write-review-button:hover {
+  background: #005bb5;
+}
+
+/* 🔹 Estilos para la cuadrícula de reseñas */
 .grid-layout {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 15px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .review {
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.review:hover {
+  transform: translateY(-5px);
+}
+
+.review img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
 }
 
 .review h3 {
-  margin: 0 0 5px;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
 }
 
 .review p {
-  margin: 5px 0;
+  font-size: 1rem;
+  color: #444;
 }
 
 .review small {
-  color: #555;
+  font-size: 0.8rem;
+  color: #777;
+  display: block;
+  margin-top: 5px;
 }
 
 @media (max-width: 768px) {
+  .widget-container {
+    padding: 15px;
+  }
+
+  .widget-title-heading {
+    font-size: 1.5rem;
+  }
+
+  .grid-layout {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .review img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .review h3 {
+    font-size: 1rem;
+  }
+
+  .review p {
+    font-size: 0.9rem;
+  }
+
   .widget-container {
     padding: 15px;
   }
