@@ -293,6 +293,17 @@
   margin-top: 20px;
   color: #bdc3c7;
 }
+.desarrollado {
+  display: block;
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  color: #bdc3c7;
+}
+.desarrollado a {
+  color: #bdc3c7;
+  text-decoration: none;
+}
 
 .footer-note i {
   margin-right: 5px;
