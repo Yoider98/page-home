@@ -108,7 +108,9 @@ function closeModal() {
 
 async function fetchReviews() {
   try {
-    const response = await fetch("./reseña.php");
+    const response = await fetch(
+      "https://apirenew.onrender.com/getGoogleReviews"
+    );
     const data = await response.json();
 
     if (data.result) {
