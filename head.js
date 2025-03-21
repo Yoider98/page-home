@@ -142,9 +142,6 @@ async function fetchReviews() {
   }
 }
 
-fetchReviews();
-
-fetchReviews();
 function formatTimestamp(timestamp) {
   const date = new Date(timestamp * 1000); // Convertir de segundos a milisegundos
   return date.toLocaleDateString("es-ES", {
