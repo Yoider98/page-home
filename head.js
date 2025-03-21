@@ -111,27 +111,33 @@ async function fetchReviews() {
     const response = await fetch(
       "https://apirenew.onrender.com/getGoogleReviews"
     );
+    console.log("HTTP Status:", response.status);
+
     const data = await response.json();
+    console.log("Datos recibidos:", data);
 
-    if (data.result) {
+    if (data.reviews && data.reviews.length > 0) {
       document.getElementById("average-rating").textContent =
-        data.result.rating.toFixed(2) + " ⭐";
+        (
+          data.reviews.reduce((sum, review) => sum + review.rating, 0) /
+          data.reviews.length
+        ).toFixed(2) + " ⭐";
       document.getElementById("total-reviews").textContent =
-        data.result.reviews.length + " reviews";
-    }
+        data.reviews.length + " reviews";
 
-    if (data.result && data.result.reviews) {
       const reviewsContainer = document.getElementById("reviews-container");
 
-      reviewsContainer.innerHTML = data.result.reviews
+      reviewsContainer.innerHTML = data.reviews
         .map(
           (review) => `
         <div class="review">
-          <img src="${review.profile_photo_url}" alt="${review.author_name}">
-          <h3>${review.author_name}</h3>
+          <img src="${review.authorAttribution.photoUri}" alt="${
+            review.authorAttribution.displayName
+          }">
+          <h3>${review.authorAttribution.displayName}</h3>
           <p>Rating: ${review.rating} ⭐</p>
-          <p>${review.text || "No comment provided."}</p>
-          <small>${formatTimestamp(review.time)}</small>
+          <p>${review.originalText?.text || "No comment provided."}</p>
+          <small>${new Date(review.publishTime).toLocaleDateString()}</small>
         </div>
       `
         )
